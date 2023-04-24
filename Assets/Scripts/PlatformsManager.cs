@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class PlatformsManager : MonoBehaviour
 {
     public GameObject platform;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +20,21 @@ public class PlatformsManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1);
-            int rd = Random.Range(0, 3);
-            platform = this.transform.GetChild(rd).gameObject;
+            int rd_stair = Random.Range(0, 3);
+            int rd_move = Random.Range(-2, 2);
+            platform = this.transform.GetChild(rd_stair).gameObject;
             //Debug.Log(rd);
-            platform.transform.Translate(0, 1, 0);
+            platform.transform.position += new Vector3(0, rd_move, 0);
+            //platform.transform.Translate(0, rd_move, 0);
             yield return new WaitForSeconds(1);
-            platform.transform.Translate(0, -1, 0);
+            platform.transform.position += new Vector3(0, -rd_move, 0);
+            //platform.transform.Translate(0, -rd_move, 0);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+
     }
 }
