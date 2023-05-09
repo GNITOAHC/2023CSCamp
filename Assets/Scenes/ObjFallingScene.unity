@@ -313,7 +313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700, y: 400}
+  m_AnchoredPosition: {x: -710, y: 380}
   m_SizeDelta: {x: 300, y: 99.8609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &208766122
@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 1237647604}
   - component: {fileID: 1237647603}
   - component: {fileID: 1237647602}
+  - component: {fileID: 1237647606}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -466,6 +467,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1237647606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237647601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cce55143c36a87439f0d5dfe4ebeade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboard_UI: {fileID: 1573857620}
 --- !u!1 &1256067559
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +551,7 @@ MonoBehaviour:
   up: 5
   spawning_period: 0.9
   buttom: -5
+  score_Manager: {fileID: 0}
 --- !u!4 &1534370060
 Transform:
   m_ObjectHideFlags: 0
@@ -587,8 +602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: 400}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -700, y: 400}
+  m_SizeDelta: {x: 300, y: 9.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1573857620
 MonoBehaviour:
@@ -995,7 +1010,7 @@ GameObject:
   - component: {fileID: 1971021926}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

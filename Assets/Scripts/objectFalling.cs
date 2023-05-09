@@ -13,7 +13,9 @@ public class objectFalling : MonoBehaviour
     private float spawning_period ;
     [SerializeField]
     private float buttom;
-    
+    [SerializeField]
+    private score_manager score_Manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,17 @@ public class objectFalling : MonoBehaviour
             {
                 Destroy(spawnedObject);
             }
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if(collision.transform.tag == "Player")
+        {
+            score_Manager.add_point(5);
+            Debug.Log("Add Point");
+            Destroy(collision.gameObject);
         }
     }
 
