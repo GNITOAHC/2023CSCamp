@@ -38,8 +38,13 @@ public class PlatformsMovement : MonoBehaviour
             Vector2 direction = points[i].position - points[(i+1)%2].position;
             Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
             //player.transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
-            rb.AddForce(direction * speed * 1.1f);
-            Debug.Log(direction * speed * 1.1f);
+
+            if (direction.y == 0)
+            {
+                rb.AddForce(direction * speed * 4.3f);
+                Debug.Log(direction * speed * 4.3f);
+            }
+            
         }
     }
 

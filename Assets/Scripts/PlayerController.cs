@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private float horizental;
     private float speed = 8f;
-    private float jumpingPower = 16f;
+    private float jumpingPower = 12f;
     private bool isFacingRight = true;
 
     // Reference the rigid body, ground check and ground layer
