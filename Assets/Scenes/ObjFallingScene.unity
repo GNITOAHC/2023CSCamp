@@ -430,6 +430,10 @@ PrefabInstance:
       value: Platform Middle
       objectReference: {fileID: 0}
     - target: {fileID: 7654700377195202222, guid: f7025656515ef2b40b8266ad1bd32f3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1971021925}
+    - target: {fileID: 7654700377195202222, guid: f7025656515ef2b40b8266ad1bd32f3c, type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 128994119}
@@ -494,6 +498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Right
       objectReference: {fileID: 0}
+    - target: {fileID: 7654700377195202222, guid: f7025656515ef2b40b8266ad1bd32f3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1971021925}
     - target: {fileID: 7654700377195202222, guid: f7025656515ef2b40b8266ad1bd32f3c, type: 3}
       propertyPath: points.Array.data[0]
       value: 
@@ -866,6 +874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Left
       objectReference: {fileID: 0}
+    - target: {fileID: 7654700377195202222, guid: f7025656515ef2b40b8266ad1bd32f3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1971021925}
     - target: {fileID: 7654700377195202222, guid: f7025656515ef2b40b8266ad1bd32f3c, type: 3}
       propertyPath: points.Array.data[0]
       value: 
