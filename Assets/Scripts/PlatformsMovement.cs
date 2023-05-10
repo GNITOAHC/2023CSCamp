@@ -41,8 +41,8 @@ public class PlatformsMovement : MonoBehaviour
 
             if (direction.y == 0)
             {
-                rb.AddForce(direction * speed * 4.3f);
-                Debug.Log(direction * speed * 4.3f);
+                rb.AddForce(direction * speed * 580f * Time.deltaTime);
+                //Debug.Log(direction * speed * 4.3f);
             }
             
         }
