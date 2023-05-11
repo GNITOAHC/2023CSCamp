@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +38,12 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate() {
         rb.velocity = new Vector2(horizental * speed, rb.velocity.y);
+        
+    }
+
+    public float getHorizontal()
+    {
+        return horizental;
     }
     
      private bool IsGrounded() {
