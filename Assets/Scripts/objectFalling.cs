@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class objectFalling : MonoBehaviour
 {
-    
+    [SerializeField]
+    private game_manager Game_Manager;
     [SerializeField]
     private GameObject points;
     [SerializeField]
@@ -18,7 +19,7 @@ public class objectFalling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     private float timer;
@@ -26,13 +27,16 @@ public class objectFalling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= spawning_period)
+        if(Game_Manager.isGameover == false)
         {
-            object_Instantiate(points);
-            timer = 0f;
+            timer += Time.deltaTime;
+            if (timer >= spawning_period)
+            {
+                object_Instantiate(points);
+                timer = 0f;
+            }
         }
-        
+            
     }
 
     void object_Instantiate(GameObject thing)
