@@ -4,6 +4,8 @@ layout: center
 
 # Unity Basic
 
+<Toc listClass="toc" minDepth="2" mode="onlyCurrentTree" />
+
 ---
 
 ## Create a Project with Unity Hub
