@@ -245,7 +245,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1945251021}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &171043234
 GameObject:
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 652683088}
   - component: {fileID: 652683087}
   m_Layer: 5
-  m_Name: final score text
+  m_Name: Final Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,12 +1128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dab1536f7d03748a8586ee92961ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Game_Manager: {fileID: 1693345589}
+  gameManager: {fileID: 1693345589}
   points: {fileID: 2295077485769601540, guid: 37a464f58e63ab249981689d70e2b0d4, type: 3}
   left: -8.2
   right: 8.2
   up: 5
-  spawning_period: 1.2
+  spawningPeriod: 0.5
   buttom: -5
 --- !u!4 &1534370060
 Transform:
@@ -1314,11 +1314,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cce55143c36a87439f0d5dfe4ebeade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreboard_UI: {fileID: 1573857620}
+  scoreboardUI: {fileID: 1573857620}
   isGameover: 0
-  Gameover_Page: {fileID: 1495284075}
-  final_score: {fileID: 652683087}
-  Restart_button: {fileID: 443606398}
+  gameoverPage: {fileID: 1495284075}
+  finalScore: {fileID: 652683087}
+  restartButton: {fileID: 443606398}
 --- !u!4 &1693345590
 Transform:
   m_ObjectHideFlags: 0
@@ -1416,7 +1416,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7654700377015072359, guid: f7025656515ef2b40b8266ad1bd32f3c, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7654700377015072359, guid: f7025656515ef2b40b8266ad1bd32f3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1545,8 +1545,8 @@ Transform:
   - {fileID: 7654700376574873900}
   - {fileID: 128994119}
   - {fileID: 12406394}
-  - {fileID: 157068408}
   - {fileID: 7654700376517383696}
+  - {fileID: 157068408}
   - {fileID: 171043235}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1797,10 +1797,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1971021925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b408aa7254359704cb75b73e3de17413, type: 3}
+  m_Script: {fileID: 11500000, guid: e000f57f480894ed08b7528c5b7fdf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_Manager: {fileID: 1693345589}
+  gameManager: {fileID: 1693345589}
   player: {fileID: 1971021925}
 --- !u!1 &2041257181
 GameObject:
