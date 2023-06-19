@@ -19,28 +19,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizental = Input.GetAxisRaw("Horizontal");
+        horizental = Input.GetAxisRaw("Horizontal"); // 確認左右
         
-        if (Input.GetButtonDown("Jump") && IsGrounded()) {
+        if (Input.GetButtonDown("Jump") && IsGrounded()) { // 當接觸地面時 向上跳
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) {
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) { // 按越久跳越高
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
     }
     
     private void FixedUpdate() {
-        rb.velocity = new Vector2(horizental * speed, rb.velocity.y);
-        
+        rb.velocity = new Vector2(horizental * speed, rb.velocity.y); // 左右增加速度
     }
 
-    public float getHorizontal()
-    {
+    public float getHorizontal() {
         return horizental;
     }
     
-     private bool IsGrounded() {
+     private bool IsGrounded() { // 確認是否著地
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 }
