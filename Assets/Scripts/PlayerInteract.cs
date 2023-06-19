@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_interact : MonoBehaviour
+public class PlayerInteract : MonoBehaviour
 {
-    [SerializeField]
-    private game_manager game_Manager;
-    [SerializeField]
-    private GameObject player;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject player;
 
     private void reset_player()
     {
@@ -16,12 +14,10 @@ public class Player_interact : MonoBehaviour
 
     void Update()
     {
-        if(player.transform.position.y < -5)
-        {
+        if(player.transform.position.y < -5) {
             reset_player();
-            game_Manager.game_over();
+            gameManager.game_over();
             Debug.Log("Fall");
-            
         }
 
     }
@@ -29,9 +25,8 @@ public class Player_interact : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Trigger " + other.gameObject.name);
-        if (other.tag == "Spawned")
-        {
-            game_Manager.add_point(5);
+        if (other.tag == "Spawned") {
+            gameManager.add_point(5);
             Debug.Log("Add Point");
             Destroy(other.gameObject);
         }

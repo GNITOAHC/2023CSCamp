@@ -2,36 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class objectFalling : MonoBehaviour
+public class ObjectFalling : MonoBehaviour
 {
-    [SerializeField]
-    private game_manager Game_Manager;
-    [SerializeField]
-    private GameObject points;
-    [SerializeField]
-    private float left, right, up; //setting the range that the points generate
-    [SerializeField]
-    private float spawning_period ;
-    [SerializeField]
-    private float buttom;
-    
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject points;
+    [SerializeField] private float left, right, up; // Setting the range that the points generate
+    [SerializeField] private float spawningPeriod;
+    [SerializeField] private float buttom;
+    private float timer;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    private float timer;
+    void Start() {}
 
     // Update is called once per frame
     void Update()
     {
-        if(Game_Manager.isGameover == false)
-        {
+        if(gameManager.isGameover == false) {
             timer += Time.deltaTime;
-            if (timer >= spawning_period)
-            {
+            if (timer >= spawningPeriod) {
                 object_Instantiate(points);
                 timer = 0f;
             }
@@ -39,11 +27,10 @@ public class objectFalling : MonoBehaviour
             
     }
 
-    void object_Instantiate(GameObject thing)
+    private void object_Instantiate(GameObject thing)
     {
         Vector3 position = new Vector3(Random.Range(left, right), up, 0f);
         Quaternion quaternion = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        // Debug.Log(quaternion);
         Instantiate(thing, position, quaternion );
     }
 
@@ -57,7 +44,4 @@ public class objectFalling : MonoBehaviour
             }
         }
     }
-    
-    
-
 }
