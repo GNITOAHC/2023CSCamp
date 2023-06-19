@@ -5,17 +5,21 @@ using UnityEngine;
 public class objectFalling : MonoBehaviour
 {
     [SerializeField]
+    private game_manager Game_Manager;
+    [SerializeField]
     private GameObject points;
     [SerializeField]
-    private float left, right, up;
+    private float left, right, up; //setting the range that the points generate
     [SerializeField]
-    private float droppingTime, destroyY;
+    private float spawning_period ;
+    [SerializeField]
+    private float buttom;
     
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     private float timer;
@@ -23,31 +27,37 @@ public class objectFalling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= droppingTime)
+        if(Game_Manager.isGameover == false)
         {
-            object_Instantiate(points);
-            timer = 0f;
+            timer += Time.deltaTime;
+            if (timer >= spawning_period)
+            {
+                object_Instantiate(points);
+                timer = 0f;
+            }
         }
-        
+            
     }
 
     void object_Instantiate(GameObject thing)
     {
         Vector3 position = new Vector3(Random.Range(left, right), up, 0f);
-        Vector3 quaternion = new Vector3(0, 0, Random.Range(0, 360));
-        Instantiate(thing, position, Quaternion.identity );
+        Quaternion quaternion = Quaternion.Euler(0, 0, Random.Range(0, 360));
+        // Debug.Log(quaternion);
+        Instantiate(thing, position, quaternion );
     }
 
     private void FixedUpdate()
     {
         foreach (GameObject spawnedObject in GameObject.FindGameObjectsWithTag("Spawned"))
         {
-            if (spawnedObject.transform.position.y < destroyY && spawnedObject.transform.position.x < right && spawnedObject.transform.position.x > left)
+            if (spawnedObject.transform.position.y < buttom )
             {
                 Destroy(spawnedObject);
             }
         }
     }
+    
+    
 
 }
