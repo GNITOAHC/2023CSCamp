@@ -29,16 +29,18 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
     }
-    
-    private void FixedUpdate() {
+
+    private void FixedUpdate()
+    {
         rb.velocity = new Vector2(horizental * speed, rb.velocity.y); // 左右增加速度
     }
 
-    public float getHorizontal() {
+    public float getHorizontal()
+    {
         return horizental;
     }
-    
-     private bool IsGrounded() { // 確認是否著地
+
+    private bool IsGrounded() { // 確認是否著地
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 }
