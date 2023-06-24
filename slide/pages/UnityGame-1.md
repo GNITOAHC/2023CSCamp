@@ -26,7 +26,7 @@ hideInToc: true
 
 ### Scene, Concept and Design
 
-<img src="/source/introduceScenes.png"/>
+<img src="/sources/introduceScenes.png"/>
 
 ---
 
@@ -35,7 +35,7 @@ hideInToc: true
 ### UI (User Interface)
 ### UX (User Experience)
 
-<img src="/source/UI.png"/>
+<img src="/sources/UI.png"/>
 
 ---
 
