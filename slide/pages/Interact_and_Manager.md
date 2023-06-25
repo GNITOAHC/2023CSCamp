@@ -25,16 +25,15 @@ hideInToc: true
 
 # What do we need
 
-## 1. Get the points
-## 2. GameOver Conditions
-## 3. User Interface (UI)
-
----
-
-## 1. Get the points
-
-- Destroy the Falling Object
-- Add points
+1. Get the points
+   - Destroy the Falling Object
+   - Add points
+2. GameOver Conditions
+   - When does game ends
+   - Start or Restart Game?
+3. User Interface (UI)
+   - Scoreboard
+   - GameOver Page
 
 
 ---
@@ -68,40 +67,35 @@ public class Player_interact : MonoBehaviour
 
 ## Why does Trigger Not work (Review)
 
-* Both of the GameObject have "Collider" component
-  * In this project, we use "Box Collider 2D"
+* Both of the GameObject have "Collider" component (Box Collider 2D)
 * Either of the GameObject need "Rigidbody 2D"
 * The object with trigger will go through other GameObject
-
+* Adding the "Spawned" Tag
 
 <img src="src/player_collider_rigidbody.png"/>
 
+
+
 ---
-
-## Adding the Tag and Tick on Trigger box
-
-#### press the Add Tag... buttom and create a new tag named "Spawned"
-#### "Is Trigger" box is in the box collider component
-<img src="src/Add_tag.png"/>
-
---- 
 
 ## Adding points
 
-
-
-```cs
+We can make a add points function first.
+  
+```csharp {all}
 private int score = 0;
 
 public void add_point(int points){
     score += points;
+
 }
 ```
+
 But... where should I put this code?  
 It seems there is a better place than putting this function in  ```player_interact.cs```  
-```GameManager``` Seems to be a good choice. 
+```GameManager``` Seems to be a good choice.  
 
----
+--- 
 
 # What does Game Manager do?
 
@@ -110,13 +104,13 @@ It seems there is a better place than putting this function in  ```player_intera
 - [ ] Switch to different stage
 
 
----
+--- 
 
 ## GameManager: Add points finish
 
 - when game is not over, the add_point function works
 
-```cs {all | 1,2,4,5,6,7,10,12,13 | 3,8,9,11| all}
+```csharp {all | 1,2,4,5,6,7,10,12,13 | 3,8,9,11| all}
 public class GameManager : MonoBehaviour
 {
     private bool isGameover = false;
@@ -133,10 +127,11 @@ public class GameManager : MonoBehaviour
 
 ```
 ---
+
 ## We can add points now
 
 
-```cs {all | 3,10 | all }
+```csharp {all | 3,10 | all }
 public class Player_interact : MonoBehaviour
 {
     [SerializeField] private GameManager Game_Manager;
@@ -159,7 +154,7 @@ public class Player_interact : MonoBehaviour
 
 when does the game ends
 
-```cs { |all}
+```csharp { |all}
 public class GameManager : MonoBehaviour
 {
     public void game_over()
@@ -171,7 +166,7 @@ public class GameManager : MonoBehaviour
 ```
 how about the game start 
 
-```cs { | |all}
+```csharp { | |all}
 public class GameManager : MonoBehaviour
 {
     private void start_game()
@@ -187,7 +182,7 @@ public class GameManager : MonoBehaviour
 
 There is a part we can put in the GameManager, Try it if you can
 
-```cs { |all | 4,5,6,7,8,9,15}
+```csharp { |all | 4,5,6,7,8,9,15}
 public class Player_interact : MonoBehaviour
 {
     [SerializeField] private GameManager Game_Manager;
@@ -230,7 +225,7 @@ public class Player_interact : MonoBehaviour
 - First, add the two library in the GameManager
 - Second, declare the UI variables
 
-```cs {all|4,5|7,8,9,10,11,12,13,14,15,16|all}
+```csharp {all|4,5|7,8,9,10,11,12,13,14,15,16|all}
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -256,7 +251,7 @@ public class GameManager : MonoBehaviour
 - Update the scoreboard with Update() function
 - Hide the GameOver Page when game start
 
-```cs {all|13|4,5,6,7,9,10,11,12,13 | 15,16,17,18 | all}
+```csharp {all|13|4,5,6,7,9,10,11,12,13 | 15,16,17,18 | all}
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -285,7 +280,7 @@ public class GameManager : MonoBehaviour
 - show the GameOver Page (Remember the panel should be parent object)
 - setting buttom with ```buttom_name.onClick.AddListener( function )```
 
-```cs 
+```csharp 
 public class GameManager : MonoBehaviour
 {
     public void game_over()
@@ -303,7 +298,7 @@ public class GameManager : MonoBehaviour
 ## To make it better
 - Stop the game when the Game is Over
 - Declare the function we used
-```cs
+```csharp
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PlatformsMovement LeftMovement;
@@ -321,7 +316,7 @@ public class GameManager : MonoBehaviour
 
 Use enabled to turn off the function in game
 
-```cs { |8,9,10,11 | all | all}
+```csharp { |8,9,10,11 | all | all}
     public void game_over()
     {
         Debug.Log("Game Over");
@@ -337,7 +332,7 @@ Use enabled to turn off the function in game
 ```
 Turn the function on when the game start
 
-```cs{ | | 6,7,8,9 | all}
+```csharp { | | 6,7,8,9 | all}
     private void start_game()
     {
         isGameover = false;
@@ -353,7 +348,7 @@ Turn the function on when the game start
 
 ## Complete code of PlayerInteract
 
-```cs
+```csharp
 public class Player_interact : MonoBehaviour
 {
     [SerializeField] private GameManager Game_Manager;
@@ -389,7 +384,7 @@ public class Player_interact : MonoBehaviour
 ```
 ---
 ## Complete Code of GameManager
-```cs
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
