@@ -82,7 +82,7 @@ public class Player_interact : MonoBehaviour
 
 We can make a add points function first.
   
-```csharp {all}
+```csharp
 private int score = 0;
 
 public void add_point(int points){
@@ -92,25 +92,27 @@ public void add_point(int points){
 ```
 
 But... where should I put this code?  
-It seems there is a better place than putting this function in  ```player_interact.cs```  
-```GameManager``` Seems to be a good choice.  
+It seems there is a better place than putting this function in  `player_interact.cs`  
+`GameManager` Seems to be a good choice.  
 
 --- 
 
 # What does Game Manager do?
 
-- [x] Control the Game
-- [x] Record the global informaion
-- [ ] Switch to different stage
+* [x] Control the Game
+* [x] Record the global informaion
+* [ ] Switch to different stage
+### What do we need to prepare for the GameManager
+1. Create a GameObject called "GameManager"
+2. Create a csharp component in "GameManager" name `GameManager.cs`
 
-
---- 
+---  
 
 ## GameManager: Add points finish
 
 - when game is not over, the add_point function works
 
-```csharp {all | 1,2,4,5,6,7,10,12,13 | 3,8,9,11| all}
+```csharp {all|1,2,4,5,6,7,10,12,13|3,8,9,11|all}
 public class GameManager : MonoBehaviour
 {
     private bool isGameover = false;
@@ -126,12 +128,13 @@ public class GameManager : MonoBehaviour
 }
 
 ```
+
 ---
 
 ## We can add points now
 
-
-```csharp {all | 3,10 | all }
+- We can use the add points in GameManager now
+```csharp {all|3,10}
 public class Player_interact : MonoBehaviour
 {
     [SerializeField] private GameManager Game_Manager;
@@ -150,11 +153,13 @@ public class Player_interact : MonoBehaviour
 ```
 
 ---
+
+
 ## GameManager: Game Condition
 
 when does the game ends
 
-```csharp { |all}
+```csharp {none|all}
 public class GameManager : MonoBehaviour
 {
     public void game_over()
@@ -166,7 +171,7 @@ public class GameManager : MonoBehaviour
 ```
 how about the game start 
 
-```csharp { | |all}
+```csharp {none|all}
 public class GameManager : MonoBehaviour
 {
     private void start_game()
@@ -176,13 +181,14 @@ public class GameManager : MonoBehaviour
     }
 }
 ```
+
 ---
 
 ## Use the game_over() and start_game()
 
 There is a part we can put in the GameManager, Try it if you can
 
-```csharp { |all | 4,5,6,7,8,9,15}
+```csharp {all|none|4,5,6,7,8,9,15}
 public class Player_interact : MonoBehaviour
 {
     [SerializeField] private GameManager Game_Manager;
@@ -209,23 +215,27 @@ public class Player_interact : MonoBehaviour
 ```
 
 ### Is it too simple? 
+
 ---
+
 ## Add the scoreboard?
 
 <img src="src/score_bar.png "/>
 
 ---
+
 ## Or Add the GameOver UI
 
 <img src="src/game_over_image.png "/>
 
 ---
+
 ## How to control the UI?
 
 - First, add the two library in the GameManager
 - Second, declare the UI variables
 
-```csharp {all|4,5|7,8,9,10,11,12,13,14,15,16|all}
+```csharp {all|4,5|7,8,9,10,11,12,13,14,15,16}
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -244,14 +254,16 @@ public class GameManager : MonoBehaviour
 }
 
 ```
+
 ---
+
 ## Display and hide the UI
 
 - Use SetActive() to show or hide object
 - Update the scoreboard with Update() function
 - Hide the GameOver Page when game start
 
-```csharp {all|13|4,5,6,7,9,10,11,12,13 | 15,16,17,18 | all}
+```csharp {all|13|4,5,6,7,9,10,11,12,13|15,16,17,18}
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -274,13 +286,14 @@ public class GameManager : MonoBehaviour
 }
     
 ```
+
 --- 
 
 ## Show the final score UI and restart buttom
 - show the GameOver Page (Remember the panel should be parent object)
-- setting buttom with ```buttom_name.onClick.AddListener( function )```
+- setting buttom with `buttom_name.onClick.AddListener( function )`
 
-```csharp 
+```csharp {all|1,2,3,4,5,6,7,8,9,10,11,19|9,13,14,15,16,17,18}
 public class GameManager : MonoBehaviour
 {
     public void game_over()
@@ -292,12 +305,22 @@ public class GameManager : MonoBehaviour
         Restart_button.onClick.AddListener(start_game);
 
     }
+
+    private void start_game()
+    {
+        isGameover = false;
+        score = 0;
+        Gameover_Page.SetActive(false);
+    }
 }
 ```
+
 ---
+
+
 ## To make it better
 - Stop the game when the Game is Over
-- Declare the function we used
+- Declare the function we will use
 ```csharp
 public class GameManager : MonoBehaviour
 {
@@ -308,17 +331,23 @@ public class GameManager : MonoBehaviour
     [SerializeField] private objectFalling objectFalling;
 }
 ```
+
+---
+
+## Assigned the variables in Unity
+
+- Drag the GameObject or file to the slot
+
 <img src="src/game_manager.png">
 
 ---
-## To make it better
-- Stop the game when the Game is Over
 
-Use enabled to turn off the function in game
 
-```csharp { |8,9,10,11 | all | all}
-    public void game_over()
-    {
+## Stop the game when the Game is Over
+#### Use enabled to turn off the function in game
+
+```csharp {none|7,8,9,10}
+    public void game_over() {
         Debug.Log("Game Over");
         isGameover = true;
         final_score.text = final_score_text + score;
@@ -332,9 +361,8 @@ Use enabled to turn off the function in game
 ```
 Turn the function on when the game start
 
-```csharp { | | 6,7,8,9 | all}
-    private void start_game()
-    {
+```csharp {none|5,6,7,8}
+    private void start_game() {
         isGameover = false;
         score = 0;
         Gameover_Page.SetActive(false);
@@ -344,36 +372,31 @@ Turn the function on when the game start
         RightMovement.enabled = true;
     }
 ```
+
 ---
 
 ## Complete code of PlayerInteract
 
 ```csharp
-public class Player_interact : MonoBehaviour
-{
+public class Player_interact : MonoBehaviour {
     [SerializeField] private GameManager Game_Manager;
     [SerializeField] private GameObject player;
 
-    private void reset_player()
-    {
+    private void reset_player() {
         player.transform.position = new Vector3(0, 0, 0);
     }
 
-    void Update()
-    {
-        if(player.transform.position.y < -5)
-        {
+    void Update() {
+        if(player.transform.position.y < -5) {
             reset_player();
             Game_Manager.game_over();
             Debug.Log("Fall");
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+    private void OnTriggerEnter2D(Collider2D other) {
         //Debug.Log("Trigger " + other.gameObject.name);
-        if (other.tag == "Spawned")
-        {
+        if (other.tag == "Spawned") {
             Game_Manager.add_point(5);
             Debug.Log("Add Point");
             Destroy(other.gameObject);
@@ -382,7 +405,9 @@ public class Player_interact : MonoBehaviour
 }
 
 ```
+
 ---
+
 ## Complete Code of GameManager
 ```csharp
 using System.Collections;
@@ -391,48 +416,45 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
+    //記分板UI
     private int score;
     private string score_text = "Score:";
     [SerializeField] private TMP_Text scoreboard_UI;
 
+    //遊戲結束畫面的UI
     public bool isGameover;
     private string final_score_text = "Final Score: ";
     [SerializeField] private GameObject Gameover_Page;
     [SerializeField] private TMP_Text final_score;
     [SerializeField] private Button Restart_button;
 
+    //需要被暫停的程式
     [SerializeField] private PlatformsMovement LeftMovement;
     [SerializeField] private PlatformsMovement RightMovement;
     [SerializeField] private PlatformsMovement MiddleMovement;
-
     [SerializeField] private objectFalling objectFalling;
+```
 
+---
 
+## Complete Code of GameManager(2)
+
+``` csharp
+    //遊戲開始
     // Start is called before the first frame update
     void Start()
     {
         start_game();
     }
 
+    //記分板更新分數
     void Update()
     {
         scoreboard_UI.text = score_text + score;
-
     }
-
-    private void start_game()
-    {
-        isGameover = false;
-        score = 0;
-        Gameover_Page.SetActive(false);
-        objectFalling.enabled = true;
-        LeftMovement.enabled = true;
-        MiddleMovement.enabled = true;
-        RightMovement.enabled = true;
-    }
-
+    
+    //加減分的 function
     public void add_point(int points)
     {
         if (!isGameover)
@@ -440,22 +462,36 @@ public class GameManager : MonoBehaviour
             score += points;
         }
     }
+```
+---
 
-    public void game_over()
-    {
-        Debug.Log("Game Over");
-        isGameover = true;
+## Complete Code of GameManager(3)
+```csharp
+    //遊戲開始需要執行的內容
+    private void start_game() { isGameover = false;
+        score = 0;
+        Gameover_Page.SetActive(false);
+
+        //讓場景物件動起來
+        objectFalling.enabled = true;
+        LeftMovement.enabled = true;
+        MiddleMovement.enabled = true;
+        RightMovement.enabled = true;
+    }
+    //遊戲結束需要執行的內容
+    public void game_over() { isGameover = true;
         final_score.text = final_score_text + score;
         Gameover_Page.SetActive(true);
+
+        //點下Restart_button可以執行start_game程式
         Restart_button.onClick.AddListener(start_game);
+
+        //停止遊戲中的畫面
         objectFalling.enabled = false;
         LeftMovement.enabled = false;
         MiddleMovement.enabled = false;
         RightMovement.enabled = false;
     }
-
-    // Update is called once per frame
-    
 }
 
 ```
