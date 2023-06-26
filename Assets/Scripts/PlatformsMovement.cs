@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlatformsMovement : MonoBehaviour
 {
     public float speed;
-    public int startingPoint;
     public Transform[] points;
     public GameObject player;
     [SerializeField] private PlayerController playerController;
@@ -15,7 +14,7 @@ public class PlatformsMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = points[startingPoint].position;
+        transform.position = points[0].position;
     }
 
     // Update is called once per frame
