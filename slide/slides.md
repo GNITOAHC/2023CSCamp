@@ -11,7 +11,7 @@ info: |
 drawings:
   persist: false
 transition: slide-left
-title: Welcome to Slidev
+title: NCCU 2023CSCamp
 
 hideInToc: true
 ---
@@ -87,4 +87,4 @@ class: text-center
 
 # Learn More
 
-[Unity](https://unity.com) · [Showcases](https://unity.com/made-with-unity)
+[Unity](https://unity.com) · [Showcases](https://unity.com/made-with-unity) · [GitHub source code](https://github.com/GNITOAHC/2023CSCamp/)

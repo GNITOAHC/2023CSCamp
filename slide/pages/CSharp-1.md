@@ -5,12 +5,7 @@
 ## Write a Hello World program
 ```cs
 using System;
-class Hello {
-		static void Main()
-		{
-				Console.WriteLine("Hello World!");
-		}
-}
+Console.WriteLine("Hello World!");
 ```
 
 ---
@@ -26,13 +21,8 @@ class Hello {
 - Written for the purpose of explaining codes to developers
 ```cs {all|5,6}
 using System;
-class Hello {
-		static void Main()
-		{
-				Console.WriteLine("Hello World!");
-				// This line outputs "Hello World!" to screen
-		}
-}
+Console.WriteLine("Hello World!");
+// This line outputs "Hello World!" to screen
 ```
 
 ---
@@ -101,9 +91,9 @@ using System;
 
 bool is_student = true;
 if(is_student)
-		Console.WriteLine("Yes");
+	Console.WriteLine("Yes");
 else
-		Console.WriteLine("No");
+	Console.WriteLine("No");
 ```
 output
 ```cs
@@ -164,7 +154,7 @@ int[,] 2DArr = {{1, 2, 3}, {4, 5, 6}};
 
 ```cs
 while(condition){
-		statement
+	statement
 }
 ```
 example
@@ -173,8 +163,8 @@ using System;
 
 int i = 0;
 while(i < 3){
-		Console.WriteLine(i);
-		i++;
+	Console.WriteLine(i);
+	i++;
 }
 ```
 output
@@ -199,8 +189,8 @@ using System;
 
 int i = 0;
 do{
-		Console.WriteLine(i);
-		i++;
+	Console.WriteLine(i);
+	i++;
 } while(i < 3);
 ```
 output
@@ -216,7 +206,7 @@ output
 
 ```cs
 for(init-state; condition; expression){
-		statement
+	statement
 }
 ```
 example
@@ -224,7 +214,7 @@ example
 using System;
 		
 for(int i = 0; i < 3; i++){
-		Console.WriteLine(i);
+	Console.WriteLine(i);
 }
 ```
 output
@@ -261,11 +251,11 @@ Now we check if the number is correct
 
 ```cs
 if(guess > answer)
-		Console.WriteLine("Smaller");
+	Console.WriteLine("Smaller");
 else if(guess < answer)
-		Console.WriteLine("Bigger");
+	Console.WriteLine("Bigger");
 else
-		Console.WriteLine("BINGO!!!");
+	Console.WriteLine("BINGO!!!");
 ```
 
 ---
@@ -279,18 +269,18 @@ using System;
 int answer = 20;
 int guess = answer + 1;
 while(guess != answer){
-		Console.WriteLine("Enter your guess: "); // user input
-		guess = Convert.ToInt32(Console.ReadLine()); // convert string to int
+	Console.WriteLine("Enter your guess: "); // user input
+	guess = Convert.ToInt32(Console.ReadLine()); // convert string to int
 
-		if(guess > answer){
-				Console.WriteLine("Smaller");
-		}
-		else if(guess < answer){
-				Console.WriteLine("Bigger");
-		}
-		else{
-				Console.WriteLine("BINGO!!!");
-		}
+	if(guess > answer){
+		Console.WriteLine("Smaller");
+	}
+	else if(guess < answer){
+		Console.WriteLine("Bigger");
+	}
+	else{
+		Console.WriteLine("BINGO!!!");
+	}
 }
 ```
 
@@ -319,8 +309,8 @@ Why do we use functions?
 ```cs
 <Access Specifiers> <return type> <name of the function>(< function parameters>)
 {
-		<function code>
-		return;
+	<function code>
+	return;
 }
 ```
 
@@ -401,23 +391,25 @@ output
 ```cs{all|1-4|6-9|11-14|16-21}
 //addition function : 2 parameters
 int plus(int num1, int num2){
-		return num1 + num2;
+	return num1 + num2;
 }
 
 //subtraction function : 2 parameters
 int minus(int num1, int num2){
-		return num1 - num2;
+	return num1 - num2;
 }
 
 //square function : 1 parameters
 int square(int num){
-		return num * num;
+	return num * num;
 }
 
 //print function : 1 parameters
 void print(int times){
-		for(int i = 0; i < times; ++i){
-				Console.WriteLine("Hi");
-		}
+	for(int i = 0; i < times; ++i){
+		Console.WriteLine("Hi");
+	}
 }
 ```
+
+---
