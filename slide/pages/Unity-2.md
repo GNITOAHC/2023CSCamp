@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 Declare our variables
 
 ```csharp
-private float horizental; // -1, 0 or 1 (horizontal position)
+private float horizontal; // -1, 0 or 1 (horizontal position)
 private float speed = 8f;
 private float jumpingPower = 12f;
 
@@ -59,7 +59,7 @@ private float jumpingPower = 12f;
 ```csharp{all|3|5,9|5|14,15}
 void Update()
 {
-    horizental = Input.GetAxisRaw("Horizontal"); // 確認左右
+    horizontal = Input.GetAxisRaw("Horizontal"); // 確認左右
     
     if (Input.GetButtonDown("Jump") && IsGrounded()) { // 當接觸地面時 向上跳
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -71,7 +71,7 @@ void Update()
 }
 
 private void FixedUpdate() {
-    rb.velocity = new Vector2(horizental * speed, rb.velocity.y); // 左右增加速度
+    rb.velocity = new Vector2(horizontal * speed, rb.velocity.y); // 左右增加速度
 }
 ```
 

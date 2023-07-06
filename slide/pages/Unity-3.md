@@ -159,7 +159,7 @@ At `Playcontroller` script, add a public function for checking if player is movi
 ```csharp
 // PlayerController.cs
 public float getHorizontal() {
-    return horizental;
+    return horizontal;
 }
 ```
 
