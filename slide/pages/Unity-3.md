@@ -56,7 +56,13 @@ void Update() {
 }
 ```
 
-`MoveTowards()`
+Declaration: `Vector2.MoveTowards(current, target, speed)`  
+`MoveTowards()`: Moves a point `current` towards `target`.
+
+```csharp
+// Current position will move from the current position to points[i].position
+transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+```
 
 ---
 layout: two-cols
@@ -125,7 +131,7 @@ public bool isMoving() { // Check if the player is moving
     return true;
 }
 
-if (isMoving()) collision.transform.SetParent(null);
+// From `if (isMoving()) collision.transform.SetParent(null);`
 ```
 
 ---
@@ -154,9 +160,9 @@ private void OnTriggerExit2D(Collider2D collision) {
 
 ---
 
-At `Playcontroller` script, add a public function for checking if player is moving
+At *`Playcontroller`* script, add a public function for checking if player is moving
 
-```csharp
+```csharp{all|1|all}
 // PlayerController.cs
 public float getHorizontal() {
     return horizontal;

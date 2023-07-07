@@ -27,18 +27,16 @@ layout: center
 <img src="/sources/Unity-4/Triangle_prefab.png" style="height:30%" />
 
 ---
-layout: two-cols
----
 
 3. Give triangle `RigidBody 2D` and `Box Collider 2D` (Set triangle's `Box Collider 2D`'s `Is Trigger` to true)
 
-<img src="/sources/Unity-4/Is_trigger.png" style="width:70%" />
+<img src="/sources/Unity-4/Is_trigger.png" style="height:70%" />
 
-::right::
+---
 
 4. Add `Spawned` tag to triangle
 
-<img src="/sources/Unity-4/Add_tag.png" style="width:70%" />
+<img src="/sources/Unity-4/Add_tag.png" style="height:70%" />
 
 ---
 
@@ -100,11 +98,16 @@ private void FixedUpdate() {
 
 Setup a boolean to check if game is ended
 
+> `GameManager.cs`
+
 ```csharp
 // GameManager.cs
 public bool isGameover;
 ```
 
+<br />
+
+> `ObjectFalling.cs`
 ```csharp
 // ObjectFalling.cs
 void Update()

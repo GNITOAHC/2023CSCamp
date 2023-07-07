@@ -8,6 +8,11 @@ using System;
 Console.WriteLine("Hello World!");
 ```
 
+output
+```cs
+Hello World!
+```
+
 ---
 
 ## Basic Programming Concepts 基礎程式觀念
@@ -19,10 +24,15 @@ Console.WriteLine("Hello World!");
 ### Comments 註解
 - Doesn't affect the functionality of programs
 - Written for the purpose of explaining codes to developers
-```cs {all|5,6}
+```cs {all|3}
 using System;
 Console.WriteLine("Hello World!");
 // This line outputs "Hello World!" to screen
+```
+
+output
+```cs
+Hello World!
 ```
 
 ---
@@ -123,24 +133,24 @@ type[] arrayName;
 
 ### Array
 Example
-```cs{all|1-3|5,6|8,9|11-14|16,17}
+```cs{all|1-3|5,6|8,9|11-14|16,17,18}
 // Declare a single-dimensional array of 5 integers.
 int[] arr = new int[5];
-// arr[0] = 0, arr[1] = 0, arr[2] = 0, ..., arr[4] = 0
+// arr[0] = 0, arr[1] = 0, arr[2] = 0, arr[3] = 0, arr[4] = 0
 
 // Declare and set array element values
-int[] arr = new int[] {1, 2, 3, 4, 5};
-
-// You can also do in this way :
 int[] arr = {1, 2, 3, 4, 5};
 
-// Declare a two dimensional array
-int[,] 2DArr = new int[2, 3];
+// You can also do in this way
+int[] arr = new int[] {10, 20, 30, 40, 50}
+
+// Declare a two dimensional array (uses a comma inside bracket)
+int[,] arr = new int[2, 3];
 //[0, 0] [0, 1] [0, 2]
 //[1, 0] [1, 1] [1, 2]
 
 // Declare and set array element values
-int[,] 2DArr = {{1, 2, 3}, {4, 5, 6}};
+int[,] arr = {{1, 2, 3}, {4, 5, 6}};
 ```
 ---
 
@@ -158,20 +168,20 @@ while(condition){
 }
 ```
 example
-```cs {all|4,7|4-7}
+```cs {all|3|4,7|4-7}
 using System;
 
 int i = 0;
 while(i < 3){
-	Console.WriteLine(i);
+	Console.WriteLine("Hello World");
 	i++;
 }
 ```
 output
 ```cs
-0
-1
-2
+Hello World
+Hello World
+Hello World
 ```
 
 ---
@@ -184,20 +194,21 @@ do{
 } while(condition);
 ```
 example
-```cs {all|4,7|4-7}
+```cs {all|3|4,7|4-7}
 using System;
 
-int i = 0;
+int i = 5;
 do{
 	Console.WriteLine(i);
 	i++;
-} while(i < 3);
+} while(i <= 8);
 ```
 output
 ```cs
-0
-1
-2
+5
+6
+7
+8
 ```
 
 ---
@@ -210,10 +221,11 @@ for(init-state; condition; expression){
 }
 ```
 example
-```cs {all|3,5|3-5}
+```cs {all|4,6|3-6}
 using System;
 		
-for(int i = 0; i < 3; i++){
+int i;
+for(i = 0; i < 3; i++){
 	Console.WriteLine(i);
 }
 ```
@@ -263,7 +275,7 @@ else
 ## A Number Guessing Game
 
 Lastly, we put all the components in a do while loop
-```cs {all|3,4|6,7|9-11|18|6,7|9-11|12-14|18|6,7|9-11|12-14|15-17|18}
+```cs {all|3,4|5|6,7|9-11|5|6,7|9-11|12-14|5|6,7|9-11|12-14|15-17|18}
 using System;
 		
 int answer = 20;
@@ -280,6 +292,7 @@ while(guess != answer){
 	}
 	else{
 		Console.WriteLine("BINGO!!!");
+		break; // exit this loop
 	}
 }
 ```
@@ -327,7 +340,7 @@ void square(int num)
 }
 
 square(5);
-// Calling the method
+// Calling the function
 ```
 output
 ```cs
@@ -337,11 +350,13 @@ output
 ---
 
 ## Function
-- return type : defines and constrains the data type of the value returned from a function
+
+return type : 
+- defines and constrains the data type of the value returned from a function
 ---
 
 ## Function
-- return type : void
+return type : void
 - doesn't return any value
 ```cs{all|9|2|2-7|5,6}
 using System;
@@ -362,7 +377,7 @@ output
 ---
 
 ## Function
-- return type : int(or any datatype you want)
+return type : int(or any datatype you want)
 - returns a value
 ```cs{all|8|2|4,5|8}
 using System;
@@ -382,7 +397,9 @@ output
 ---
 
 ## Function
-- parameters參數 : the data you give to a function
+
+parameters(參數) : 
+- the data you give to a function
 
 ---
 

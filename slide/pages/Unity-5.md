@@ -93,6 +93,7 @@ private void start_game() {
 ---
 
 ```csharp
+// GameManager.cs
 public void add_point(int points) {
     if (!isGameover) score += points; // If not game over, update the score.
 }

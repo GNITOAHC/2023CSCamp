@@ -56,7 +56,7 @@ private float jumpingPower = 12f;
 
 ---
 
-```csharp{all|3|5,9|5|14,15}
+```csharp{all|3|5-7|9-11|14-16}
 void Update()
 {
     horizontal = Input.GetAxisRaw("Horizontal"); // 確認左右
