@@ -7,7 +7,6 @@ public class PlatformsMovement : MonoBehaviour
 {
     public float speed;
     public Transform[] points;
-    public GameObject player;
     [SerializeField] private PlayerController playerController;
     private int i = 0;
 
