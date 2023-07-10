@@ -75,7 +75,7 @@ Create the triangle object instances
 private void object_Instantiate(GameObject thing) {
     Vector3 position = new Vector3(Random.Range(left, right), up, 0f);
     Quaternion quaternion = Quaternion.Euler(0, 0, Random.Range(0, 360));
-    Instantiate(thing, position, quaternion );
+    Instantiate(thing, position, quaternion ); // Instantiate(要複製的東西, 要複製得座標, 複製物的旋轉)
 }
 ```
 

@@ -125,6 +125,7 @@ private void OnTriggerStay2D(Collider2D collision) {
 2. If player is moving or exit the collide, set player's parent to nothing (i.e. `null`)
 
 ```csharp
+[SerializeField] private PlayerController playerController; // Remember to set the variable to access the PlayerController.
 public bool isMoving() { // Check if the player is moving
     // return playerController.getHorizontal() != 0 ? true : false;
     if(playerController.getHorizontal() == 0) return false;
@@ -193,7 +194,7 @@ Set `player` for platform
 
 ---
 
-After adding player tag, we need to add a `Rigidbody 2D` for triggering the collision. (After adding, platform will have *two* box collider)
+After adding player tag, we need to add a `Box Collider 2D` for triggering the collision. (After adding, platform will have *two* box collider)
 
 <img src="/sources/Unity-3/Trigger_box_collider.png" style="height:60%" />
 

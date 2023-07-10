@@ -1,4 +1,13 @@
+---
+layout: center
+---
+
+# C# - 2 Class
+
+---
+
 ## Class (類別)
+
 - What is a class?
 
 ```cs
@@ -6,19 +15,19 @@ using System;
 public class Cat
 {
     int age;
-    int health;
-    int speed;
+	double health;
+    string name;
     
-    public Cat(int age)
+    public Cat(string name,int age)
     {
+		this.name = name;
         this.age = age;
-        this.health = 100;
-        this.speed = age + 20;
+        this.health = age*100;
     }
     
     public void Meow()
     {
-        Console.WriteLine("Cat with age:" + age +" said meow~");
+        Console.WriteLine("Cat " + name + " with age:" + age +" said meow~");
     }
 }
 ```
@@ -35,8 +44,8 @@ class Program
     static void Main()
     {
         
-        Cat cat1 = new Cat(10);
-        Cat cat2 = new Cat(20);
+        Cat cat1 = new Cat("Leo", 10);
+        Cat cat2 = new Cat("Steven", 20);
         cat1.Meow();
     }
 }
@@ -49,24 +58,24 @@ class Program
 
 ## Class (類別)
 - Properties
-```cs{3-5}
+```cs{4-6}
 using System;        
 public class Cat
 {
     int age;
-    int health;
-    int speed;
+	double health;
+    string name;
     
-    public Cat(int age)
+    public Cat(string name,int age)
     {
+		this.name = name;
         this.age = age;
-        this.health = 100;
-        this.speed = age + 20;
+        this.health = age*100;
     }
     
     public void Meow()
     {
-        Console.WriteLine("Cat with age:" + age +" said meow~");
+        Console.WriteLine("Cat " + name + " with age:" + age +" said meow~");
     }
 }
 ```
@@ -75,24 +84,24 @@ public class Cat
 
 ## Class(類別)
 - Class Methods
-```cs{14-17}
+```cs{15-18}
 using System;        
 public class Cat
 {
     int age;
-    int health;
-    int speed;
+	double health;
+    string name;
     
-    public Cat(int age)
+    public Cat(string name,int age)
     {
+		this.name = name;
         this.age = age;
-        this.health = 100;
-        this.speed = age + 20;
+        this.health = age*100;
     }
     
     public void Meow()
     {
-        Console.WriteLine("Cat with age:" + age +" said meow~");
+        Console.WriteLine("Cat " + name + " with age:" + age +" said meow~");
     }
 }
 ```
@@ -101,24 +110,24 @@ public class Cat
 
 ## Class(類別)
 - Class Constructor (構造器)
-```cs{3,4,5,24}
+```cs{8-13}
 using System;        
 public class Cat
 {
     int age;
-    int health;
-    int speed;
+	double health;
+    string name;
     
-    public Cat(int age)
+    public Cat(string name,int age)
     {
+		this.name = name;
         this.age = age;
-        this.health = 100;
-        this.speed = age + 20;
+        this.health = age*100;
     }
     
     public void Meow()
     {
-        Console.WriteLine("Cat with age:" + age +" said meow~");
+        Console.WriteLine("Cat " + name + " with age:" + age +" said meow~");
     }
 }
 
@@ -126,7 +135,7 @@ class Program
 {
     static void Main()
     {
-        Cat cat = new Cat(10);
+        Cat cat = new Cat("Steven", 10);
         cat.Meow();
     }
 }
