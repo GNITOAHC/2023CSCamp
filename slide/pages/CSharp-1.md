@@ -1,5 +1,9 @@
-# C# basics
-## C# 基礎教學
+---
+layout: center
+---
+
+# C# - 1 Basic
+
 ---
 
 ## Write a Hello World program
@@ -428,5 +432,3 @@ void print(int times){
 	}
 }
 ```
-
----
