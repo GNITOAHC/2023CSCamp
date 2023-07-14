@@ -81,6 +81,11 @@ hide: false
 ---
 
 ---
+src: ./pages/Deploy.md
+hide: false
+---
+
+---
 src: ./pages/Resources.md
 hide: false
 ---
