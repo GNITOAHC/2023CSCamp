@@ -5,7 +5,7 @@
 `git clone` the repository and open the project with Unity version `2021.3.20f1`.
 
 ```bash
-git clone git@github.com:GNITOAHC/2023CSCamp.git`
+git clone git@github.com:GNITOAHC/2023CSCamp.git
 ```
 
 ## Running the game on web
